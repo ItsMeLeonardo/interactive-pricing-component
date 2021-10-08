@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon-32x32.png">
+  <link rel="stylesheet" href="src/css/main.css">
+
+  <title>Frontend Mentor | Interactive pricing component</title>
+
+  <script src="src/js/main.js"></script>
+</head>
+<body>
+
+  <main class="container">
+
+    <section class="header">
+      <h1 class="header__title">Simple, traffic-based pricing</h1>
+      <p class="header__description">
+        Sign-up for our 30-day trial.
+        No credit card required. 
+      </p>
+    </section>
+  
+    <section class="card">
+      <div class="card__content">
+        <span class="card__text">100k PAGEVIEWS</span>
+        
+        <div class="card__range">
+          <input class="card__range-input" type="range" name="price" max="32" min="0">
+        </div>
+
+        <span class="card__text-price card__text">
+          <strong class="card__number">$16.00</strong>/month
+        </span>
+        
+        <div class="card__billing">
+          <p class="card__text card__monthly">
+            Monthly Billing
+          </p>
+          <input class="card__bill-input" type="checkbox" name="" id="">
+          <p class="card__text card__yearly">
+            Yearly Billing 
+            <span class="card__discount md">25% discount</span>
+            <span class="card__discount sm"> -25%</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="card__description">
+
+        <ul class="card__benefits">
+          <li class="card__benefit">
+            Unlimited websites
+          </li>
+          <li class="card__benefit">
+            100% data ownership
+          </li>
+          <li class="card__benefit">
+            Email reports
+          </li>
+        </ul>
+        
+        <button class="card__btn">
+          Start my trial
+        </button>
+        
+      </div>
+    </section>
+  </main>
+  
+</body>
+</html>

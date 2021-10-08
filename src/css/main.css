@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap');
+/* reset styles */
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+button {
+  border: none;
+  background: transparent;
+}
+li {
+  list-style: none;
+}
+
+:root {
+  /* colors */
+  /* primary */
+  --Soft-CyanBar: hsl(174, 77%, 80%);
+  --Strong-Cyan: hsl(174, 86%, 45%);
+  --Light-Grayish: hsl(14, 92%, 95%);
+  --Light-Red: hsl(15, 100%, 70%);
+  --Pale-Blue: hsl(226, 100%, 87%);
+  
+  /* neutral */
+  --White: hsl(0, 0%, 100%);
+  --Very-Pale-Blue: hsl(230, 100%, 99%);
+  --Light-Grayish-bar: hsl(224, 65%, 95%);
+  --Light-Grayish-bg: hsl(223, 50%, 87%);
+  --Grayish-Blue: hsl(225, 20%, 60%);
+  --Dark-Desaturated-Blue: hsl(227, 35%, 25%);
+  
+  /* text */
+  --paragraph: 15px;
+
+  /* price slide*/
+  --bar-price: 50%;
+
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../images/bg-pattern.svg') no-repeat;
+  object-fit: cover;
+}
+
+.md {
+  display: none;
+}
+
+.header {
+  text-align: center;
+  position: relative;
+}
+.header::after {
+  --size: 10rem;
+  content: "";
+  position: absolute;
+  top: -2rem;
+  left: 7rem;
+  background: url('../images/pattern-circles.svg') no-repeat center;
+  object-fit: cover;
+  width: var(--size);
+  height: var(--size);
+  z-index: -1;
+}
+.header__title {
+  font-weight: 800;
+  color: var(--Dark-Desaturated-Blue);
+  font-size: 1.5rem;
+}
+.header__description {
+  font-size: 1rem;
+  color: var(--Grayish-Blue);
+  white-space: pre-wrap;
+}
+
+.card {
+  background: var(--White);
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+.card__content {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+  gap: 1rem;
+}
+.card__text {
+  color: var(--Grayish-Blue);
+  font-size: .75rem;
+}
+.card__range {
+  width: 100%;
+}
+.card__range-input {
+  position: relative;
+  appearance: none;
+  background: var(--Light-Grayish-bar);
+  width: 100%;
+  border-radius: 1rem;
+  height: .75rem;
+  cursor: pointer;
+}
+.card__range-input::after {
+  content: '';
+  position: absolute;
+  background:var(--Soft-CyanBar);
+  border-radius: 1rem;
+  width: var(--bar-price);
+  height: .75rem;
+} 
+.card__range-input::-webkit-slider-thumb {
+  --size: 2.5rem;
+  appearance: none;
+  position: relative;
+  z-index: 1;
+  background:var(--Strong-Cyan) url('../images/icon-slider.svg') no-repeat center;
+  object-fit: cover;
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+  box-shadow: 0 1rem 1.5rem -.15rem var(--Soft-CyanBar);
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  cursor: grab;
+}
+.card__range-input:active.card__range-input::-webkit-slider-thumb{
+  --Strong-Cyan: hsl(174, 86%, 40%);
+  cursor: grabbing;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.card__text-price {
+  font-size: 1rem;
+}
+.card__number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--Dark-Desaturated-Blue);
+  padding-right: 0.25em;
+}
+
+.card__billing {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 105%;
+  gap: 1rem;
+}
+.card__monthly,
+.card__yearly {
+  font-size: .75rem;
+}
+.card__discount {
+  padding: .25rem .5rem;
+  background: var(--Light-Grayish);
+  color: var(--Light-Red);
+  border-radius: 1rem;
+  font-size: .75rem;
+}
+.card__bill-input {
+  --size: 3rem;
+  appearance: none;
+  width: var(--size);
+  height: calc(var(--size)/2);
+  border-radius: 18px;
+  background: var(--Light-Grayish-bar);
+  outline: none;
+  transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+  position: relative;
+  cursor: pointer;
+}
+.card__bill-input:hover {
+  background-color: var(--Light-Grayish-bg);
+}
+.card__bill-input:checked {
+  background-color: var(--Strong-Cyan);
+  box-shadow: 0 .25rem 2rem -.5rem var(--Soft-CyanBar);
+}
+.card__bill-input::before {
+  --size: 1rem;
+  content: '';
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  background: var(--White);
+  top: 4px;
+  left: 4px;
+  border-radius: 50%;  
+  transition: transform .3s ease-in-out;
+}
+.card__bill-input:checked::before {
+  transform: translateX(1.5rem);
+}
