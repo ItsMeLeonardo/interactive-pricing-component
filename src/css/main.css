@@ -259,6 +259,7 @@ body {
   }
   .card {
     padding: 2rem;
+    width: 500px;   
   }
   .card__pg-views {
     width: 100%;
