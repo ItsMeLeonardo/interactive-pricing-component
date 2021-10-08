@@ -53,9 +53,17 @@ body {
   display: none;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .header {
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .header::after {
   --size: 10rem;
@@ -84,6 +92,10 @@ body {
   background: var(--White);
   padding: 1.5rem;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 7px 8px 5rem 0px hsl(227deg 35% 25% / 8%);
 }
 .card__content {
   display: grid;
@@ -94,6 +106,9 @@ body {
 .card__text {
   color: var(--Grayish-Blue);
   font-size: .75rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }
 .card__range {
   width: 100%;
@@ -196,4 +211,82 @@ body {
 }
 .card__bill-input:checked::before {
   transform: translateX(1.5rem);
+}
+
+.card__description {
+  padding-top: 1rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 -1px 0 0 var(--Light-Grayish-bg);
+}
+.card__benefits {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+  align-items: center;
+}
+.card__benefit {
+  list-style-image: url('../images/icon-check.svg');
+  display: list-item;
+}
+.card__btn {
+  background-color: var(--Dark-Desaturated-Blue);
+  color: var(--Light-Grayish-bar);
+  padding: 1rem 2.5rem;
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+}
+.card__btn:hover {
+  background-color: var(--Grayish-Blue);
+}
+
+@media screen and (min-width: 1024px) {
+  .sm {
+    display: none;
+  }
+  .md {
+    display: block;
+  }
+  
+  .container {
+    gap: 2rem;
+  }
+  .card {
+    padding: 2rem;
+  }
+  .card__pg-views {
+    width: 100%;
+    font-size: .75rem;
+    font-weight: 800;
+  }
+  .card__content {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-flow: dense;
+  }
+  .card__range, .card__billing {
+    grid-column: span 2;
+  }
+  .card__text-price {
+    gap: 0;
+  }
+
+  .card__description {
+    flex-direction: row;
+  }
+  .card__benefits {
+    align-items: start;
+  }
+  .card__benefit {
+    margin-left: 1rem;
+  }
+  .card__btn{ 
+    padding: .75rem 2.5rem;
+  }
 }
